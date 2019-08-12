@@ -49,14 +49,20 @@ class Flowers(Goods):
     def get_color(self):
         return self.__color
 
+    def get_name(self):
+        return "Цветы: " + Goods.get_name(self)
 
-class Clock(Product):
+
+class Clock(Goods):
     # Тип часов
     __type = ""
 
     def __init__(self, name, price, type):
         Goods.__init__(self, name, price)
         self.__type = type
+
+    def get_name(self):
+        return "Часы: " + Goods.get_name(self)
 
 
 # Класс пищевые товары
@@ -69,7 +75,7 @@ class Food(Goods):
     def __init__(self, name, price, bestbefore, energy):
         Goods.__init__(self, name, price)
         self.__energy = energy
-        self.__bestBefore = bestbefore
+        self.__bestbefore = bestbefore
 
     def get_energy(self):
         return self.__energy
@@ -90,6 +96,9 @@ class Cake(Food):
     def get_weight(self):
         return self.__weight
 
+    def get_name(self):
+        return "Торт: " + Goods.get_name(self)
+
 
 class Candy(Food):
     # Начинка
@@ -101,3 +110,6 @@ class Candy(Food):
 
     def get_filling(self):
         return self.__filling
+
+    def get_name(self):
+        return "Конфеты: " + Goods.get_name(self)
