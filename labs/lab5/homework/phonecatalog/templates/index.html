@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if message %}
+    <p><strong>{{ message }}</strong></p>
+{% endif %}
+    <ul>
+    <h1>Телефонный справочник:</h1>
+    <table>
+        <tr>
+            <th>Наименование</th>
+            <th>Адрес</th>
+            <th>Телефон</th>
+        </tr>
+        {% if latest_phones %}
+            {% for i in latest_phones %}
+                <tr>
+                    <td>{{ i.name }}</td>
+                    <td>{{ i.address }}</td>
+                    <td>
+                        <a href="tel:{{ i.phone }}">{{ i.phone }}</a></td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <p>Нет данных.</p>
+        {% endif %}
+    </table>
+    </ul>
+</div>
+</body>
+</html>
